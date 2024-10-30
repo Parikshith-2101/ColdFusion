@@ -23,8 +23,8 @@
         <div class="text-center">       
             <cfif structKeyExists(form, "rating") AND len(form.rating) GT 0>
                 <cfset obj = new pageFunc()> 
-                <cfset result = obj.calculate(form.rating)>
-                #result#
+                <cfset local.result = obj.calculate(form.rating)>
+                #local.result#
             </cfif>
         </div>
 

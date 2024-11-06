@@ -1,17 +1,13 @@
 <cfcomponent>
 
-    <cffunction name="calculate" returnType = "Any">
-        <cfargument name="userIn1">
-        <cfargument name="userIn2">
-        <cfset userIn1 = arguments.userIn1>
-        <cfset userIn2 = arguments.userIn2>
+    <cffunction name="calculate" returnType = "struct">
+        <cfargument name="userIn1" type = "String">
+        <cfargument name="userIn2" type = "String">
 
-        
-        <cfset output = structNew()>
-        <cfset output[#userIn1#] = #userIn2#>
+        <cfset local.output = structNew()>
+        <cfset local.output[arguments.userIn1] = arguments.userIn2>
 
-        <cfreturn output>
-      
+        <cfreturn local.output>     
     </cffunction>
 
 </cfcomponent>

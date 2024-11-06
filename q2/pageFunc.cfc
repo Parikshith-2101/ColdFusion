@@ -1,27 +1,26 @@
 <cfcomponent>
 
-    <cffunction name="calculate" returnType = "String">
+    <cffunction name="calculate" access="public" returnType = "String">
         <cfargument name="rating" type="numeric">
-        
-        <cfset rating = arguments.rating>
-        <cfswitch expression = #rating#>
+        <cfset local.result = "">
+        <cfswitch expression = "#arguments.rating#">
             <cfcase value = 5>
-                <cfreturn "Very good">
+                <cfset local.result = "Very good">
             </cfcase>
             <cfcase value = 4>
-                <cfreturn "Good">
+                <cfset local.result = "Good">
             </cfcase>
             <cfcase value = 3>
-                <cfreturn "Fair">
+                <cfset local.result = "Fair">
             </cfcase>
             <cfcase value = 1,2>
-                <cfreturn "Ok">
+                <cfset local.result = "Ok">
             </cfcase>
             <cfdefaultcase>
-                <cfreturn "Invalid input. Please enter a number between 1 and 5.">
+                <cfset local.result = "Invalid input. Please enter a number between 1 and 5.">
             </cfdefaultcase>
         </cfswitch>
-
+        <cfreturn local.result>
     </cffunction>
 
 </cfcomponent>

@@ -1,15 +1,16 @@
 <cfcomponent>
-    <cffunction name="calculate" returnType="Any">
-        <cfargument  name="userIn">
-        <cfset output = structNew()>
-            <cfloop index="i" from="1" to="#arguments.userIn#">
-                <cfif i mod 2 eq 0>
-                    <cfset output[i] = "green">
+    <cffunction name = "calculate" access = "public" returnType = "struct">
+        <cfargument name = "userIn" type = "numeric">
+        <cfset local.output = structNew()>
+        
+            <cfloop index = "i" from = "1" to = "#arguments.userIn#">
+                <cfif i MOD 2 EQ 0>
+                    <cfset local.output[i] = "green">
                 <cfelse>
-                    <cfset output[i] = "blue">
+                    <cfset local.output[i] = "blue">
                 </cfif>
             </cfloop>
-            <cfdump  var="#output#">
+            <cfreturn local.output>
     </cffunction>
 </cfcomponent>
 

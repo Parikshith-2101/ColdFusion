@@ -1,16 +1,10 @@
 <cfcomponent>
 
-    <cffunction name="calculate" returnType = "Any">
-        <cfargument name="userIn1">
-        <cfargument name="userIn2">
-        <cfset userIn1 = arguments.userIn1>
-        <cfset userIn2 = arguments.userIn2>
-
-
-        <cfset session.output[#userIn1#] = #userIn2#>
-
-        <cfdump  var="#session.output#">
-      
+    <cffunction name="calculate" returnType = "struct">
+        <cfargument name="userIn1" type = "String">
+        <cfargument name="userIn2" type = "String">
+        <cfset session.output[arguments.userIn1] = arguments.userIn2>
+        <cfreturn session.output>     
     </cffunction>
 
 </cfcomponent>

@@ -1,9 +1,9 @@
 <cfcomponent>
-    <cffunction name="calculate" returnType="Any">
-         <cfif not isDefined("cookie.VisitsCounter")>
-            <cfcookie name="VisitsCounter" value="1">
+    <cffunction name = "calculate" returnType = "numeric">
+         <cfif isDefined("cookie.VisitsCounter")>
+            <cfcookie name = "VisitsCounter" value = "#cookie.VisitsCounter + 1#">
         <cfelse>
-            <cfcookie name="VisitsCounter" value="#cookie.VisitsCounter + 1#">
+            <cfcookie name = "VisitsCounter" value = "1">
         </cfif>
         <cfreturn cookie.VisitsCounter>
     </cffunction>

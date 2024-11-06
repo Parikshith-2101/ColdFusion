@@ -1,50 +1,53 @@
 <cfcomponent>
 
-    <cffunction name="calculate" returnType = "Any">
+    <cffunction name = "calculate" access = "public" returnType = "struct">
 
         <cfset todayDate = dateFormat(now())>
-        <cfset month_num = month(todayDate)>
-        <cfset month = monthAsString(month_num)>
+        <cfset local.month_num = month(todayDate)>
+        <cfset local.month = monthAsString(local.month_num)>
 
-        <cfset TotalDaysInMonth = daysInMonth(todayDate)>
-        <cfset lastDateInMonth = createDate(year(todayDate), month(todayDate), TotalDaysInMonth)>
-        <cfset DayInWeek = dayOfWeek(lastDateInMonth)>
-        <cfset fridayCheck = (6-DayInWeek)>
-        <cfset lastFridayInDate = dateAdd("d", fridayCheck, lastDateInMonth)>
-        <cfset lastFriday = dateFormat(lastFridayInDate)>
+        <cfset local.TotalDaysInMonth = daysInMonth(todayDate)>
+        <cfset local.lastDateInMonth = createDate(year(todayDate), month(todayDate), local.TotalDaysInMonth)>
+        <cfset local.dayInWeek = dayOfWeek(local.lastDateInMonth)>
+        <cfset local.fridayCheck = (6 - local.dayInWeek)>
+        <cfset local.lastFridayInDate = dateAdd("d", local.fridayCheck, local.lastDateInMonth)>
+        <cfset local.lastFriday = dateFormat(local.lastFridayInDate)>
 
-        <cfset output = structNew()>
-        <cfset output['Date(Today)'] = todayDate >
-        <cfset output['Month(Num)'] = month_num >
-        <cfset output['Month'] = month >
-        <cfset output['Last Friday'] = lastFriday >
-        <cfset output['Last Day of Month'] = dateFormat(lastDateInMonth) >
+        <cfset local.output = structNew()>
+        <cfset local.output['Date(Today)'] = todayDate >
+        <cfset local.output['Month(Num)'] = local.month_num >
+        <cfset local.output['Month'] = local.month >
+        <cfset local.output['Last Friday'] = local.lastFriday >
+        <cfset local.output['Last Day of Month'] = dateFormat(local.lastDateInMonth) >
 
-
-        <cfreturn output>
+        <cfreturn local.output>
 
     </cffunction>
 
-    <cffunction name="getLast5Days">
-        <cfset last5days = []>
+    <cffunction name = "getLast5Days" access = "public" returnType = "array">
+        <cfset local.last5days = []>
         <cfloop index="i" from = "1" to = "5">
-            <cfset day = dateAdd("d", -i , todayDate)>
-            <cfset arrayAppend(last5days, day)>
+            <cfset local.day = dateAdd("d", -i , todayDate)>
+            <cfset arrayAppend(local.last5days, local.day)>
         </cfloop>
-        <cfreturn last5days>
+        <cfreturn local.last5days>
     </cffunction>
 
-    <cffunction name="dayColor">
-        <cfargument name="day">
-        <cfswitch expression="#dayOfWeek(day)#">
-        <cfcase value="1"><cfreturn "red"></cfcase>
-        <cfcase value="2"><cfreturn "green"></cfcase>
-        <cfcase value="3"><cfreturn "orange"></cfcase>
-        <cfcase value="4"><cfreturn "yellow"></cfcase>
-        <cfcase value="5"><cfreturn "black"></cfcase>
-        <cfcase value="6"><cfreturn "blue"></cfcase>
-        <cfcase value="7"><cfreturn "darkred"></cfcase>
+    <cffunction name = "dayColor" access = "public" returnType = "String">
+        <cfargument name = "day" type = "numeric">
+
+        <cfswitch expression = "#dayOfWeek(arguments.day)#">
+            <cfcase value = 1 ><cfset local.result = "red"></cfcase>
+            <cfcase value = 2 ><cfset local.result = "green"></cfcase>
+            <cfcase value = 3 ><cfset local.result = "orange"></cfcase>
+            <cfcase value = 4 ><cfset local.result = "yellow"></cfcase>
+            <cfcase value = 5 ><cfset local.result = "black"></cfcase>
+            <cfcase value = 6 ><cfset local.result = "blue"></cfcase>
+            <cfcase value = 7 ><cfset local.result = "darkred"></cfcase>
         </cfswitch>
+
+        <cfreturn local.result>
+
     </cffunction>
 </cfcomponent>
 

@@ -1,38 +1,31 @@
-<cfoutput>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>13</title>
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-</head>
-
-<body class="d-flex justify-content-center">
-
-    <div>
-        <form action="" method = "post">
-            <div class="d-flex flex-column mt-5">
-                <h2>The quick brown fox jumps over the lazy dog</h2>
-                <div class="d-flex mb-3 mt-3 text-nowrap">Key :<input type="text" name="userIn1" class="form-control ms-2"></div>
-                <input type="submit" name="Submit" class="btn btn-primary mt-3">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>13</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    </head>
+    <body class="d-flex justify-content-center">
+        <cfoutput>
+            <div class="w-50">
+                <form method = "post">
+                    <div class="d-flex flex-column mt-5 w-100">
+                        <input type="text" name="string" value = "The quick brown fox jumps over the lazy dog" class="form-control border-0">
+                        <div class="d-flex mb-3 mt-3 text-nowrap align-items-center">Key :<input type="text" name="userIn" class="form-control ms-2"></div>
+                        <input type="submit" name="Submit" class="btn btn-primary mt-3">
+                    </div>
+                </form>
+                <div class="text-center">       
+                    <cfif structKeyExists(form, "Submit") AND len(trim(form.userIn))>
+                        <cfset local.objPageFunc = new pageFunc()> 
+                        <cfset local.result = local.objPageFunc.calculate(form.string,form.userIn)>
+                        Found the keyword "<b>#form.userIn#</b>" for <b>#local.result# times</b> - #form.string#
+                    </cfif>
+                </div>
             </div>
-        </form>
-
-        <div class="text-center">       
-            <cfif structKeyExists(form, "userIn1")>
-                <cfset obj = new pageFunc()> 
-                <cfset local.result = obj.calculate(form.userIn1)>
-                Found the keyword(#userIn1#) in #local.result#
-            </cfif>
-
-        </div>
-
-    </div>
-
-</body>
-
+        </cfoutput>
+    </body>
 </html>
-</cfoutput>
 
 
 

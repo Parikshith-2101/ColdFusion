@@ -1,53 +1,48 @@
 <cfcomponent>
 
-    <cffunction name="calculate" returnType = "Any">
-        <cfargument name="userIn1">
-        <cfargument name="userIn2">
-        <cfset userIn1 = arguments.userIn1>
-        <cfset userIn2 = arguments.userIn2>
-
-        <cfset user_date = dateFormat(userIn1)>
-        <cfset mom_date = dateFormat(userIn2)>
-        <cfset cur_date = dateFormat(now())>
+    <cffunction name = "calculate" access = "public" returnType = "struct">
+        <cfargument name = "userIn1" type = "date">
+        <cfargument name = "userIn2" type = "date">
+        
+        <cfset local.user_date = dateFormat(arguments.userIn1)>
+        <cfset local.mom_date = dateFormat(arguments.userIn2)>
+        <cfset local.cur_date = dateFormat(now())>
        
-        <cfset user_age = dateDiff("yyyy", user_date, cur_date)>
-        <cfset mom_age = dateDiff("yyyy", mom_date, cur_date)>
+        <cfset local.user_age = dateDiff("yyyy", local.user_date, local.cur_date)>
+        <cfset local.mom_age = dateDiff("yyyy", local.mom_date, local.cur_date)>
 
-        <cfset motherAgeOnDelivery = year(user_date)-year(mom_date)>
+        <cfset local.motherAgeOnDelivery = year(local.user_date)-year(local.mom_date)>
 
-        <cfset userBornDay = createDate(year(cur_date), month(user_date), day(user_date))>
-        <cfset momBornDay = createDate(year(cur_date), month(mom_date), day(mom_date))>
+        <cfset local.userBornDay = createDate(year(local.cur_date), month(local.user_date), day(local.user_date))>
+        <cfset local.momBornDay = createDate(year(local.cur_date), month(local.mom_date), day(local.mom_date))>
         
-        <cfset datecompareofuser = dateCompare(user_date ,cur_date)>
-        <cfset datecompareofmom = dateCompare(mom_date ,cur_date)>
+        <cfset local.datecompareofuser = dateCompare(local.user_date ,local.cur_date)>
+        <cfset local.datecompareofmom = dateCompare(local.mom_date ,local.cur_date)>
 
-        <cfif datecompareofuser LT 0>
-            <cfset userBornDay  = createDate(year(cur_date)+1, month(user_date), day(user_date))>
+        <cfif local.datecompareofuser LT 0>
+            <cfset local.userBornDay  = createDate(year(local.cur_date)+1, month(local.user_date), day(local.user_date))>
         </cfif>
-        <cfif datecompareofmom LT 0>
-            <cfset momBornDay  = createDate(year(cur_date)+1, month(mom_date), day(mom_date))>
+        <cfif local.datecompareofmom LT 0>
+            <cfset local.momBornDay  = createDate(year(local.cur_date)+1, month(local.mom_date), day(local.mom_date))>
         </cfif>
         
-        <cfset daysforUserBday = dateDiff("d", cur_date ,userBornDay)>
-        <cfset daysforMomBday = dateDiff("d", cur_date ,momBornDay)>
+        <cfset local.daysforUserBday = dateDiff("d", local.cur_date ,local.userBornDay)>
+        <cfset local.daysforMomBday = dateDiff("d", local.cur_date ,local.momBornDay)>
 
-        <cfif datecompareofuser EQ 0>
-            <cfset daysforUserBday = "Today">
+        <cfif local.datecompareofuser EQ 0>
+            <cfset local.daysforUserBday = "Today">
         </cfif>
-        <cfif datecompareofmom EQ 0>
-            <cfset daysforMomBday = "Today">
+        <cfif local.datecompareofmom EQ 0>
+            <cfset local.daysforMomBday = "Today">
         </cfif>
-        <cfset output = structNew()>
-        <cfset output['Your Age'] = user_age>
-        <cfset output['Mom Age'] = mom_age>
-        <cfset output['Mother Age On Delivery'] = motherAgeOnDelivery>
-        <cfset output['Days remain for ur bday'] = daysforUserBday>
-        <cfset output['Days remain for Mom bday'] = daysforMomBday>
+        <cfset local.output = structNew()>
+        <cfset local.output['Your Age'] = local.user_age>
+        <cfset local.output['Mom Age'] = local.mom_age>
+        <cfset local.output['Mother Age On Delivery'] = local.motherAgeOnDelivery>
+        <cfset local.output['Days remain for ur bday'] = local.daysforUserBday>
+        <cfset local.output['Days remain for Mom bday'] = local.daysforMomBday>
 
-        <cfreturn output>
-
-
-
+        <cfreturn local.output>
 
     </cffunction>
 

@@ -8,15 +8,15 @@
         <cfoutput>
             <!-- cfinvoke -->
             <cfset local.result1 = 0>
-            <cfinvoke component="pageFunc" method="multiply" a="1" b="2" returnvariable="local.result1">
+            <cfinvoke component="pageFunc" method="multiply" num1="1" num2="2" returnvariable="local.result1">
             <p>multiply(1, 2) using cfinvoke: #local.result1#</p>
 
             <cfset local.result2 = 0>
-            <cfinvoke component="pageFunc" method="multiply" a="1" b="2" c="3" returnvariable="local.result2">
+            <cfinvoke component="pageFunc" method="multiply" num1="1" num2="2" num3="3" returnvariable="local.result2">
             <p>multiply(1, 2, 3) using cfinvoke: #local.result2#</p>
 
             <cfset local.result3 = 0>
-            <cfinvoke component="pageFunc" method="multiply" a="1" b="2" c="3" d="4" returnvariable="local.result3">
+            <cfinvoke component="pageFunc" method="multiply" num1="1" num2="2" num3="3" num4="4" returnvariable="local.result3">
             <p>multiply(1, 2, 3, 4) using cfinvoke: #local.result3#</p>
             <br>
             <!-- cfobject -->

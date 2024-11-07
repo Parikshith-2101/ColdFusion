@@ -10,7 +10,7 @@
         <cfelseif trim(arguments.captcha) NEQ local.captchaCheck>
             <cfset local.result = "red : Captcha does'nt match">
         <cfelse>
-            <cfset local.result = "green : Form submitted successfully!">
+            <cfset local.result = "green : Email Address successfully subscribe our newsletter">
         </cfif>
         <cfreturn local.result>
     </cffunction>

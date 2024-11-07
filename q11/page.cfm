@@ -11,11 +11,14 @@
 </cffunction>
 
 <cfset local.res = multiply(1, 2)>
+<p>multiply(1, 2)</p>
 <cfdump var="#local.res#">
 
 <cfset local.res = multiply(1, 2, 3)>
+<p>multiply(1, 2, 3)</p>
 <cfdump var="#local.res#">
 
 <cfset local.res = multiply(1, 2, 3, 4)>
+<p>multiply(1, 2, 3, 4)</p>
 <cfdump var="#local.res#">
 

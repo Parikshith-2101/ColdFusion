@@ -26,10 +26,10 @@
             <cfobject name = "obj" component = "pageFunc">
             <cfset local.result  =  obj.calculate(form.imageName,form.imageFile)>
 
-            <cfset newimagename = imageRead(form.imageFile)>
+            <cfset local.newImageName = imageRead(form.imageFile)>
             <cfset session.imageName = form.imageName>
             <cfset session.imageDesc = form.imageDesc>
-            <cfset session.imageFile = newimagename>
+            <cfset session.imageFile = local.newImageName>
             <div class = "d-flex justify-content-center align-items-center">
                 <b>
                     <cfdump var="#form.imageName#">

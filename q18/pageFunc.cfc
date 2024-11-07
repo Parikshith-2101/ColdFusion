@@ -1,5 +1,5 @@
 <cfcomponent>
-    <cffunction name = "calculate" returnType = "query">
+    <cffunction name = "calculate" access = "public" returnType = "query">
         <cfset local.dataTable = queryNew("ID,Name,Email" , "integer,varchar,varchar")>
         <cfset queryAddRow(local.dataTable)>
         <cfset querySetCell(local.dataTable, "ID", "1")>

@@ -18,7 +18,6 @@
                     <cfloop collection = "#local.result#" item = "item">
                         <div style = "color:#local.result[item]#">#item#</div>
                     </cfloop>
-
                 </cfif> 
             </cfoutput>
         </div>

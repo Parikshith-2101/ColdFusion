@@ -10,7 +10,7 @@
                     <input type="submit" value="Submit" class="btn btn-primary">
                 </form>
 
-                <cfobject component = "pageFunc" name="objPageFunc">
+                <cfobject component = "components.pageFunc" name="objPageFunc">
                 <cfset local.result = objPageFunc.calculate()>
                 <p>Number of visits: #local.result#</p>
             </cfoutput>

@@ -1,33 +1,30 @@
 <cfcomponent>
-
     <cffunction name = "calculate" access = "public" returnType = "struct">
-
-        <cfset todayDate = dateFormat(now())>
-        <cfset local.month_num = month(todayDate)>
-        <cfset local.month = monthAsString(local.month_num)>
-
-        <cfset local.TotalDaysInMonth = daysInMonth(todayDate)>
-        <cfset local.lastDateInMonth = createDate(year(todayDate), month(todayDate), local.TotalDaysInMonth)>
+        <cfset local.todayDate = dateFormat(now())>
+        <cfset local.monthNum = month(local.todayDate)>
+        <cfset local.month = monthAsString(local.monthNum)>
+        <cfset local.TotalDaysInMonth = daysInMonth(local.todayDate)>
+        <cfset local.lastDateInMonth = createDate(year(local.todayDate), month(local.todayDate), local.TotalDaysInMonth)>
         <cfset local.dayInWeek = dayOfWeek(local.lastDateInMonth)>
         <cfset local.fridayCheck = (6 - local.dayInWeek)>
         <cfset local.lastFridayInDate = dateAdd("d", local.fridayCheck, local.lastDateInMonth)>
         <cfset local.lastFriday = dateFormat(local.lastFridayInDate)>
 
         <cfset local.output = structNew()>
-        <cfset local.output['Date(Today)'] = todayDate >
-        <cfset local.output['Month(Num)'] = local.month_num >
+        <cfset local.output['Date(Today)'] = local.todayDate >
+        <cfset local.output['Month(Num)'] = local.monthNum >
         <cfset local.output['Month'] = local.month >
         <cfset local.output['Last Friday'] = local.lastFriday >
         <cfset local.output['Last Day of Month'] = dateFormat(local.lastDateInMonth) >
 
         <cfreturn local.output>
-
     </cffunction>
 
     <cffunction name = "getLast5Days" access = "public" returnType = "array">
+        <cfset local.todayDate = dateFormat(now())>
         <cfset local.last5days = []>
         <cfloop index="i" from = "1" to = "5">
-            <cfset local.day = dateAdd("d", -i , todayDate)>
+            <cfset local.day = dateAdd("d", -i , local.todayDate)>
             <cfset arrayAppend(local.last5days, local.day)>
         </cfloop>
         <cfreturn local.last5days>
@@ -47,7 +44,6 @@
         </cfswitch>
 
         <cfreturn local.result>
-
     </cffunction>
 </cfcomponent>
 

@@ -1,24 +1,18 @@
-<cffunction name="multiply" acces="public" returntype="numeric">
+<cfset local.objPageFunc = new components.pageFunc()>
+<cfset local.a = 1>
+<cfset local.b = 2>
+<cfset local.c = 3>
+<cfset local.d = 4>
 
-    <cfargument name="num1" type="numeric">
-    <cfargument name="num2" type="numeric">
-    <cfargument name="num3" type="numeric" default="1">
-    <cfargument name="num4" type="numeric" default="1">
-    
-    <cfset local.result = arguments.num1 * arguments.num2 * arguments.num3 * arguments.num4>
-    
-    <cfreturn local.result>
-</cffunction>
-
-<cfset local.res = multiply(1, 2)>
+<cfset local.res = local.objPageFunc.multiply(local.a, local.b)>
 <p>multiply(1, 2)</p>
-<cfdump var="#local.res#">
+<b><cfdump var="#local.res#"></b>
 
-<cfset local.res = multiply(1, 2, 3)>
+<cfset local.res = local.objPageFunc.multiply(local.a, local.b, local.c)>
 <p>multiply(1, 2, 3)</p>
-<cfdump var="#local.res#">
+<b><cfdump var="#local.res#"></b>
 
-<cfset local.res = multiply(1, 2, 3, 4)>
+<cfset local.res = local.objPageFunc.multiply(local.a, local.b, local.c, local.d)>
 <p>multiply(1, 2, 3, 4)</p>
-<cfdump var="#local.res#">
+<b><cfdump var="#local.res#"></b>
 

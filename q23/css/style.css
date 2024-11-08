@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #669900;
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+.container{
+    width: 665px;
+    margin-top: 17px;
+}
+.logo{
+    background-color: #99cc00;
+}
+.logo>a{
+    background-image: url(../assets/wflogo.png);
+    background-repeat: no-repeat;
+    height: 80px;
+    display: block;
+}
+form{
+    background: #ffffff;
+    padding: 20px 14px 0 14px;
+    position: relative;
+}
+.form-title{
+    font-size: 140%;
+    font-weight: normal;
+    color: #000000;
+}
+.form-header > div{
+    font-size : 75%;
+    margin-bottom : 15px;
+}
+.form-header{
+    border-bottom: 1px dotted #CCCCCC;
+}
+.form-header2{
+    border-top: 1px dotted #CCCCCC;
+}
+.form-label{
+    font-size: 75%;
+    font-weight: bold;
+    color: #444444;
+}
+.form-radio{
+    font-size: 80%;
+    display: flex;
+    align-items: center;
+}
+.fs-7{
+    font-size: 12px;
+}
+.errorMsgDiv{
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 10px;
+}
+.errorMsgDiv>.msg{
+    color : red;
+}
+.errorMsgSpan{
+    background-color: #FFDFDF;
+    color: red;
+}

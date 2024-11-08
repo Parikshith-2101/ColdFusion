@@ -24,7 +24,7 @@
                 </form>
                 <div class = "text-center">       
                     <cfif structKeyExists(form, "Submit") AND len(form.userIn1) AND len(form.userIn2)>
-                        <cfset local.objpageFunc = new pageFunc()> 
+                        <cfset local.objpageFunc = new components.pageFunc()> 
                         <cfset local.result = local.objpageFunc.calculate(form.userIn1,form.userIn2)>
 
                         <cfloop collection = "#local.result#" item = "key">

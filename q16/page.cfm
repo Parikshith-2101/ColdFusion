@@ -11,11 +11,13 @@
                     <input type="Submit" name="Submit" value="Submit" class="btn btn-primary"><br>
                 </form>
                 <cfif structKeyExists(form, "Submit")>
-                    <cfobject component="pageFunc" name="objPageFunc">
+                    <cfobject component="components.pageFunc" name="objPageFunc">
                     <cfset local.result = objPageFunc.calculate()>
-
-                    <cfloop index = "r" from = "1" to = "3">
-                        <cfloop index = "c" from = "1" to = "3">
+                    <cfset local.row = 3>
+                    <cfset local.col = 3>
+                    <cfset local.start = 1>
+                    <cfloop index = "r" from = "#local.start#" to = "#local.row#">
+                        <cfloop index = "c" from = "#local.start#" to = "#local.col#">
                             #local.result[r][c]#
                         </cfloop>
                         <br>

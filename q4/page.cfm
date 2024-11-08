@@ -5,7 +5,6 @@
         <title>4</title>
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     </head>
-
     <body class="d-flex justify-content-center">
         <cfoutput>
             <div>
@@ -17,7 +16,7 @@
                 </form>
                 <div class="text-center">       
                     <cfif structKeyExists(form, "Submit")>
-                        <cfset local.objPageFunc = new pageFunc()> 
+                        <cfset local.objPageFunc = new components.pageFunc()> 
                         <cfset local.result = local.objPageFunc.calculate()>
 
                         <cfloop collection="#local.result#" item="key">

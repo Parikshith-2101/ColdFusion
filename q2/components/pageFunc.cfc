@@ -1,5 +1,4 @@
 <cfcomponent>
-
     <cffunction name="calculate" access="public" returnType = "String">
         <cfargument name="rating" type="numeric">
         <cfset local.result = "">
@@ -22,7 +21,6 @@
         </cfswitch>
         <cfreturn local.result>
     </cffunction>
-
 </cfcomponent>
 
 

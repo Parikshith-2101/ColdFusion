@@ -1,6 +1,5 @@
 <cfcomponent>
-
-    <cffunction name="calculate" returnType = "struct">
+    <cffunction name = "calculate" access = "public" returnType = "struct">
         <cfargument name="userIn1" type = "String">
         <cfargument name="userIn2" type = "String">
 
@@ -9,7 +8,6 @@
 
         <cfreturn local.output>     
     </cffunction>
-
 </cfcomponent>
 
 

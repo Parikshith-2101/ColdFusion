@@ -24,12 +24,12 @@
         </form>
         <cfoutput>
         <cfif structKeyExists(form, "Submit") AND len(trim(form.userName)) AND len(trim(form.userEmail)) AND len(trim(form.userText))>
-            <cfobject name="obj" component = "pageFunc">
+            <cfobject name="obj" component = "components.pageFunc">
             <cfset local.result = obj.calculate(form.userName,form.userEmail,form.userText,form.userFile)>
-            Mail sent Successfully
+            <div class = "text-success">Mail sent Successfully</div>
 
         <cfelse>
-            Please fill valid information
+            <div class = "text-danger">Please fill valid information<div>
         </cfif>
         </cfoutput>
     </body>

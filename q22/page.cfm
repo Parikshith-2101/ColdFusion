@@ -11,7 +11,7 @@
 
         <cfoutput>
             <cfif structKeyExists(form, "Submit")>
-                <cfobject name="objPageFunc" component="pageFunc">
+                <cfobject name="objPageFunc" component="components.pageFunc">
                 <cfset local.result = objPageFunc.calculate()>
                 <div class="mt-5 w-75">
                     <table class="table border border-2">

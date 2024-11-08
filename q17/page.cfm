@@ -2,6 +2,7 @@
     <head>
         <title>17</title>
         <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">   
     </head>
     <body>
         <div class="d-flex flex-column align-items-center">
@@ -12,16 +13,16 @@
             </form>
             <cfoutput>
                 <cfif structKeyExists(form, "Submit")> 
-                    <cfobject component = "pageFunc" name = "objPageFunc">
+                    <cfobject component = "components.pageFunc" name = "objPageFunc">
                     <cfset local.result = objPageFunc.calculate(form.userIn)>
 
                     <cfloop collection = "#local.result#" item = "item">
-                        <div style = "color:#local.result[item]#">#item#</div>
+                        <div class = "#local.result[item]#">#item#</div>
                     </cfloop>
                 </cfif> 
             </cfoutput>
         </div>
-        <script src = "script.js"></script>
+        <script src = "js/script.js"></script>
     </body>
 </html>
 

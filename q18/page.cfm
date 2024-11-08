@@ -12,7 +12,7 @@
                 </form>
 
                 <cfif structKeyExists(form, "Submit")>
-                    <cfobject component = "pageFunc" name="objPageFunc">
+                    <cfobject component = "components.pageFunc" name="objPageFunc">
                     <cfset local.result = objPageFunc.calculate()>
                     <cfdump  var="#local.result#">
                 </cfif>

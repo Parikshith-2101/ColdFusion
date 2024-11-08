@@ -17,7 +17,7 @@
                 </form>
                 <div class="text-center">       
                     <cfif structKeyExists(form, "Submit") AND len(trim(form.userIn))>
-                        <cfset local.objPageFunc = new pageFunc()> 
+                        <cfset local.objPageFunc = new components.pageFunc()> 
                         <cfset local.result = local.objPageFunc.calculate(form.string,form.userIn)>
                         Found the keyword "<b>#form.userIn#</b>" for <b>#local.result# times</b> - #form.string#
                     </cfif>

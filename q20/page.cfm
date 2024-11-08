@@ -20,7 +20,7 @@
                 <input type="submit" name="submit" class="form-control btn btn-primary">
             </form>
             <cfif structKeyExists(form, "submit")>
-                <cfobject name="objPageFunc" component="pageFunc">
+                <cfobject name="objPageFunc" component="components.pageFunc">
                 <cfset local.result = objPageFunc.calculate(form.userEmail,form.userCaptcha)>
                 <cfset opArray = listToArray(local.result,":",false,true)>
                 <span style = "color : #opArray[1]#">

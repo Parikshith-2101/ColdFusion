@@ -64,3 +64,9 @@ form{
     background-color: #FFDFDF;
     color: red;
 }
+.errorText {
+    color: red;
+    font-size: 12px;
+    background-color: #FFDFDF;
+    border-radius: 6px;
+}

@@ -1,5 +1,4 @@
 <cfcomponent>
-
     <cffunction name="calculate" access = "public" returnType = "String">
 
         <cfargument name="stringIn" type = "String">
@@ -9,7 +8,6 @@
         
         <cfreturn local.result> 
     </cffunction >
-
 </cfcomponent>
 
 

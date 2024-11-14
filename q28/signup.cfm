@@ -10,7 +10,7 @@
                 <h2>CMS SIGNUP PAGE</h2>
                 <div class="d-flex align-items-center my-3">
                     <label for="userName" class="w-25">Username :</label>
-                    <input type="text" name="userName" class="form-control">
+                    <input type="text" name="userName" class="form-control" placeholder = "username@example.com">
                 </div>
                 <div id = "nameError" class = "text-danger text-center"></div>
                 <div class="d-flex align-items-center my-3">
@@ -27,13 +27,17 @@
                     <label for="role" class="w-25">Select Role :</label>
                     <select name="role" class="form-control">
                         <option value=""></option>
-                        <option value="user">USER</option>
-                        <option value="admin">ADMIN</option>
-                        <option value="editor">EDITOR</option>
+                        <cfobject  name="newobj" component = "components.pageFunc">
+                        <cfset local.selectLoop = newobj.roleFetchFunction()>
+
+                        <cfoutput query = "local.selectLoop">
+                            <option value = "#local.selectLoop.roleID#">#local.selectLoop.role#</option>
+                        </cfoutput>                    
                     </select>
                 </div>
                 <div id = "roleError" class = "text-danger text-center"></div>
                 <input type="submit" value="Signup" name="submit" class="form-control btn btn-primary my-3" onclick = "return signupValidate()">
+                <a href="index.cfm" class="form-control text-center">Already have an account ? Login</a>
             </form>
             <cfif structKeyExists(form, "submit")>
                 <cfobject name = "objPageFunc" component = "components.pageFunc">
@@ -46,6 +50,7 @@
                 </cfif>
             </cfif>
         </div>
+        <script src = "../../jquery/jquery-3.7.1.min.js"></script>
         <script src = "js/script.js"></script>
     </body>
 </html>

@@ -6,14 +6,11 @@
     </head>
     <body>
         <div class="container d-flex flex-column align-items-center">
-            <cfif structKeyExists(session, "role")>
-                <cfif session.role EQ "admin" OR session.role EQ "editor">
-                <cfelse>
-                    <cflocation  url="user.cfm" addToken = "No">
-                </cfif>
-            <cfelse>
-                <cflocation  url="index.cfm" addToken = "No">
+        
+            <cfif session.role EQ "admin" OR session.role EQ "editor">
+                <cflocation  url = "admin.cfm" addToken = "No">
             </cfif>
+
             <cfoutput>
                 <cfobject name = "objPageFunc" component = "components.pageFunc">
                 <cfset local.result = objPageFunc.pageList()>
@@ -30,8 +27,10 @@
                     <cfset local.pageDisplay = obj.pageDisplay(form.btnName)>                
                 </cfif>
             </cfoutput>
-            <a href = "components/pageFunc.cfc?method=logout" class = "form-control btn btn-danger w-50">Logout</a>
+            <a href = "##" onclick = "logout()" class = "form-control btn btn-danger w-50">Logout</a>
             <script src="../../bootstrap/js/bootstrap.min.js"></script>
+            <script src = "../../jquery/jquery-3.7.1.min.js"></script>
+            <script src = "js/script.js"></script>
         </div>
     </body>
 </html>

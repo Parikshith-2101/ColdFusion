@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>12</title>
@@ -34,7 +33,6 @@
 
                 <h3 class = "mt-3">#form.number#th row FirstName : #local.result[2]#</h3>                   
             </cfoutput>
-
         </cfif>
     </body>
 </html>

@@ -28,7 +28,7 @@ function signupValidate() {
     const confirmPassword = document.getElementsByName('confirmPassword')[0].value.trim();
     const role = document.getElementsByName('role')[0].value;
     const emailCheck = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const passCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_))$/;
+    const passCheck = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{4,25}$/;
     let isValid = true;
 
     if (userName === '' || !emailCheck.test(userName)) {

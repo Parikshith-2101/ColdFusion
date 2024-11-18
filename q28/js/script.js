@@ -64,7 +64,7 @@ function logout(){
     {
         $.ajax({
             url: 'components/pageFunc.cfc?method=logout',
-            method: 'GET',
+            method: 'POST',
             success: function() {
                 window.location.href = "index.cfm";
             }
